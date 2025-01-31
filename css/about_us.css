@@ -1,0 +1,107 @@
+.about_us_banner{
+    display: flex;
+    text-align: left;
+
+
+    
+    
+}
+
+.about_us_banner div{
+    height: 80px;
+    width: 100%;
+    background-color: #010326;
+    color: white;
+    padding: 15px;
+    margin: 0 auto;
+    letter-spacing: 2px;
+    
+   
+}
+
+.image_banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url(/images/about_us_banner.png);
+    width: 100%;
+    height: 350px;
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+
+
+}
+
+
+.page_title{
+
+    font-weight: 400;
+    margin: 25px 25px 15px;
+    font-size: 20px;
+}
+
+.master_wraper_holder{
+    margin: 0px 80px;
+}
+
+.main_wraper_holder{
+    box-sizing: border-box;
+}
+
+.content_padding{
+    padding: 30px 20px;
+}
+
+.content_block{
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+.text_phrase{
+    color: white;
+    margin-bottom: 20px;
+    padding-top: 30px !important;
+    font-size: 30px;
+    line-height: 26PX;
+    text-align: center;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.text_header{
+    color: #020659 ;
+    margin-bottom: 20px;
+    padding-top: 30px !important;
+    font-size: 30px;
+    line-height: 26PX;
+    text-align: left;
+    font-weight: 700;
+    font-style: normal;
+}
+.content_tex_padding{
+    padding-top: 15px !important;
+}
+
+
+.content_text{
+    box-sizing: border-box;
+}
+
+p {
+    font-size: 20px;
+    word-wrap: break-word;
+    line-height: 1.66em;
+    margin-bottom: 20px;
+}
+
+.line {
+    width: 90%; 
+    height: 0.06px; 
+    margin: 70px auto 10px; 
+    background-color: #777777; 
+    box-shadow: 0 2px 10px 1px rgb(57, 57, 57); 
+}
