@@ -40,7 +40,7 @@ header {
     align-items: center;
     gap: 5em; 
     font-size: 20px;
-    margin-right: 10em;
+    margin-right: 1em;
     
 }
 
@@ -155,7 +155,7 @@ header {
 
 .practice_area {
     width: 100%;
-    min-height: auto; /* Permite que o conteúdo expanda conforme necessário */
+    min-height: auto; 
     margin-top: 3em;
     padding-bottom: 5em;
 }
