@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LLLC - Contact</title>
+    <title data-en="LLLC - Contact" data-pt="LLLC - Contato">LLLC - Contact</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/contact.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,32 +14,41 @@
 
   <header class="header" id="header">
     <div class="header_img">
-      <img class="img_logo_header" src="images/LLLC.png" alt="logo_LLLC">
+        <img class="img_logo_header" src="images/LLLC.png" alt="logo_LLLC">
     </div>
-  
+
     <div class="navigation_header">
-      <a href="index.html">Home</a>
-      <a href="about_us.html">About us</a>
-      <a href="practice_areas.html">Practice areas</a>
-      <a href="contact.html">Contact us</a>
+      <a href="index.html" data-en="Home" data-pt="Início">
+      Home 
+      </a>
+      <a href="about_us.html" data-en="About us" data-pt="Sobre nós">About us</a>
+      <a href="practice_areas.html" data-en="Practice areas" data-pt="Áreas de atuação">Practice areas</a>
+      <a href="contact.html" data-en="Contact us" data-pt="Fale conosco">Contact us</a>
+      <button id="translate-btn">BR Portugês</button>
+      </div>
+      
     </div>
+    
   </header>
 
   <section class="contact_us_banner"  >
 
     <div class="contact_us_banner_area">
-      <h1 class="page_title" >Contact</h1>
+      <h1 class="page_title" data-en="Contact" data-pt="Contato" >Contact</h1>
     </div>
 
   </section>
 
   <section class="contact_banner">
     <div class="contact_text">
-      <h1>CONTACT</h1>
-      <a href="https://w.app/lllc" class="contact_button">
-        Get in Touch
-        <img src="images/Vector.png" alt="WhatsApp">
-      </a>
+      <h1 data-en="CONTACT" data-pt="CONTATO">CONTACT</h1>
+      <div>
+        <a href="https://api.whatsapp.com/send?phone=5521972266424" class="contact_button" data-en="Get in touch" data-pt="Entre em contato">
+          <img src="images/Vector.png" alt="WhatsApp">
+          Get in Touch
+        </a>
+        
+    </div>
     </div>
 </section>
 
@@ -51,7 +60,7 @@
 
       <div style="text-align: center; margin: 0 0 15px;">
         <strong>DIMENSION OFFICE PARK</strong>
-        <p>02° floor - room 235A</p>
+        <p data-en="02° floor - room 235A" data-pt="02° andar - sala 235A">02° floor - room 235A</p>
         <p>Av. Embaixador Abelardo Bueno - Barra da tijuca</p>
         <p>Rio de Janeiro - RJ</p>
       </div>
@@ -70,13 +79,38 @@
 
 
 
-      <footer class="footer" id="footer">
-        <p>L.L.L. CABRAL & D.V.PINTO - INDUSTRIAL PROPERTY AGENTS</p>
-        <p>Av. Embaixador Abelardo Bueno, 1 room 235A  - Barra da Tijuca</p>
-        <p>Rio de Janeiro / RJ - 22775-022 - Brazil</p>
-        <p>TELEPHONE: (+55 21) 3889-2002 OR 97226-6424</p>
-    
-      </footer>
+  <footer class="footer" id="footer">
+    <p data-en="L.L.L. CABRAL & D.V.PINTO - INDUSTRIAL PROPERTY AGENTS" data-pt="LLL CABRAL & D.V.PINTO - AGENTES DE PROPRIEDADE INDUSTRIAL
+    ">L.L.L. CABRAL & D.V.PINTO - INDUSTRIAL PROPERTY AGENTS</p>
+    <p data-en="Av. Embaixador Abelardo Bueno, room 235A  - Barra da Tijuca" data-pt="Av. Embaixador Abelardo Bueno, sala 235A  - Barra da Tijuca">Av. Embaixador Abelardo Bueno, room 235A  - Barra da Tijuca</p>
+    <p>Rio de Janeiro / RJ - 22775-022 - Brazil</p>
+    <p>TELEPHONE: (+55 21) 3889-2002 OR 97226-6424</p>
+
+  </footer>
+
+
+  <script>
+    let currentLang = 'en';
+
+    document.getElementById('translate-btn').addEventListener('click', function () {
+    const elements = document.querySelectorAll('[data-en]');
+
+    elements.forEach(el => {
+        const newText = currentLang === 'en' ? el.getAttribute('data-pt') : el.getAttribute('data-en');
+
+        if (el.classList.contains('contact_button')) {
+            el.innerHTML = `<img src="images/Vector.png" alt="WhatsApp"> ${newText}`;
+        } else {
+            el.textContent = newText;
+        }
+    });
+
+    this.textContent = currentLang === 'en' ? 'US English' : 'BR Português';
+
+    currentLang = currentLang === 'en' ? 'pt' : 'en';
+});
+
+</script>
     
 </body>
 </html>
