@@ -58,9 +58,10 @@ body{
 }
 
 .contact_button {
-    display: inline-flex;
-    align-items: center; /* Centraliza verticalmente */
-    gap: 10px; /* Espaço entre a imagem e o texto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     background-color: #020659;
     color: white;
     font-size: 18px;
@@ -70,6 +71,7 @@ body{
     text-decoration: none;
     transition: background 0.3s ease;
 }
+
 
 .contact_button img {
     width: 20px;
@@ -91,18 +93,24 @@ body{
     padding-right: 15px;
 }
 
-.contact_text h1{
-    color:white;
+.contact_text {
+    display: flex;
+    flex-direction: column; /* Mantém o título acima do botão */
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    position: absolute;
-    top: 53%;
-    left: 50%;
-    transform: translate(-50%, -60%);
+    width: 100%;
+    padding-top: 50px; /* Ajuste para posicionamento correto */
+    gap: 15px; /* Espaçamento entre os elementos */
+}
 
-    opacity: 2;
+.contact_text h1 {
+    color: white;
     font-size: 40px;
     font-weight: 600;
+    margin: 0; /* Removendo margens desnecessárias */
 }
+
 .text_topo{
     font-weight: 700 !important;
     font-size: 18px;
