@@ -135,32 +135,36 @@
   <footer class="footer" id="footer">
     <p data-en="L.L.L. CABRAL & D.V.PINTO - INDUSTRIAL PROPERTY AGENTS" data-pt="LLL CABRAL & D.V.PINTO - AGENTES DE PROPRIEDADE INDUSTRIAL
     ">L.L.L. CABRAL & D.V.PINTO - INDUSTRIAL PROPERTY AGENTS</p>
-    <p data-en="Av. Embaixador Abelardo Bueno, room 235A  - Barra da Tijuca" data-pt="Av. Embaixador Abelardo Bueno, sala 235A  - Barra da Tijuca">Av. Embaixador Abelardo Bueno, room 235A  - Barra da Tijuca</p>
-    <p>Rio de Janeiro / RJ - 22775-022 - Brazil</p>
+    <p data-en="Av. Embaixador Abelardo Bueno, 1 room 235A, Barra Olímpica - Rio de Janeiro / RJ - 22775-022 - Brazil" data-pt="Av. Embaixador Abelardo Bueno, sala 235A  - Barra Olímpica">Av. Embaixador Abelardo Bueno, 1 room 235A, Barra Olímpica</p>
+    <p data-en="Rio de Janeiro / RJ - 22775-022 - Brazil" data-pt="Rio de Janeiro / RJ - 22775-022 - Brasil">Rio de Janeiro / RJ - 22775-022 - Brazil</p>
     <p>TELEPHONE: (+55 21) 3889-2002 OR 97226-6424</p>
 
   </footer>
 
 
   <script>
-    let currentLang = 'en';
+    let currentLang = localStorage.getItem('lang') || 'en';
 
-    document.getElementById('translate-btn').addEventListener('click', function () {
+    function applyTranslation() {
         const elements = document.querySelectorAll('[data-en]');
 
         elements.forEach(el => {
-            if (currentLang === 'en') {
-                el.textContent = el.getAttribute('data-pt');
-            } else {
-                el.textContent = el.getAttribute('data-en');
-            }
+            el.textContent = currentLang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-pt');
         });
 
-        this.textContent = currentLang === 'en' ? 'US English' : 'BR Portugês';
+        document.getElementById('translate-btn').textContent = currentLang === 'en' ? 'BR Português' : 'US English';
+    }
 
+    document.getElementById('translate-btn').addEventListener('click', function () {
         currentLang = currentLang === 'en' ? 'pt' : 'en';
+        localStorage.setItem('lang', currentLang);
+        applyTranslation();
     });
+
+    // Aplicar tradução ao carregar a página
+    document.addEventListener('DOMContentLoaded', applyTranslation);
 </script>
+
     
 </body>
 </html>

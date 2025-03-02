@@ -95,20 +95,20 @@ body{
 
 .contact_text {
     display: flex;
-    flex-direction: column; /* Mantém o título acima do botão */
+    flex-direction: column; 
     align-items: center;
     justify-content: center;
     text-align: center;
     width: 100%;
-    padding-top: 50px; /* Ajuste para posicionamento correto */
-    gap: 15px; /* Espaçamento entre os elementos */
+    padding-top: 50px; 
+    gap: 15px;
 }
 
 .contact_text h1 {
     color: white;
     font-size: 40px;
     font-weight: 600;
-    margin: 0; /* Removendo margens desnecessárias */
+    margin: 0; 
 }
 
 .text_topo{

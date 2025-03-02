@@ -64,7 +64,7 @@
       <div style="text-align: center; margin: 0 0 15px;">
         <strong>DIMENSION OFFICE PARK</strong>
         <p data-en="02° floor - room 235A" data-pt="02° andar - sala 235A">02° floor - room 235A</p>
-        <p>Av. Embaixador Abelardo Bueno - Barra da tijuca</p>
+        <p>Av. Embaixador Abelardo Bueno n° 1 - Barra Olímpica</p>
         <p>Rio de Janeiro - RJ</p>
       </div>
       <div class="map-container">
@@ -85,35 +85,42 @@
   <footer class="footer" id="footer">
     <p data-en="L.L.L. CABRAL & D.V.PINTO - INDUSTRIAL PROPERTY AGENTS" data-pt="LLL CABRAL & D.V.PINTO - AGENTES DE PROPRIEDADE INDUSTRIAL
     ">L.L.L. CABRAL & D.V.PINTO - INDUSTRIAL PROPERTY AGENTS</p>
-    <p data-en="Av. Embaixador Abelardo Bueno, room 235A  - Barra da Tijuca" data-pt="Av. Embaixador Abelardo Bueno, sala 235A  - Barra da Tijuca">Av. Embaixador Abelardo Bueno, room 235A  - Barra da Tijuca</p>
-    <p>Rio de Janeiro / RJ - 22775-022 - Brazil</p>
+    <p data-en="Av. Embaixador Abelardo Bueno, 1 room 235A, Barra Olímpica - Rio de Janeiro / RJ - 22775-022 - Brazil" data-pt="Av. Embaixador Abelardo Bueno, sala 235A  - Barra Olímpica">Av. Embaixador Abelardo Bueno, 1 room 235A, Barra Olímpica</p>
+    <p data-en="Rio de Janeiro / RJ - 22775-022 - Brazil" data-pt="Rio de Janeiro / RJ - 22775-022 - Brasil">Rio de Janeiro / RJ - 22775-022 - Brazil</p>
     <p>TELEPHONE: (+55 21) 3889-2002 OR 97226-6424</p>
 
   </footer>
 
 
   <script>
-    let currentLang = 'en';
+    let currentLang = localStorage.getItem('lang') || 'en';
 
-    document.getElementById('translate-btn').addEventListener('click', function () {
+    function applyTranslation() {
     const elements = document.querySelectorAll('[data-en]');
 
     elements.forEach(el => {
-        const newText = currentLang === 'en' ? el.getAttribute('data-pt') : el.getAttribute('data-en');
-
-        if (el.classList.contains('contact_button')) {
-            el.innerHTML = `<img src="images/Vector.png" alt="WhatsApp"> ${newText}`;
+        if (el.tagName === 'A' && el.querySelector('img')) {
+            // Se for um link contendo uma imagem, preserva a imagem e muda apenas o texto
+            el.innerHTML = `<img src="images/Vector.png" alt="WhatsApp"> ${currentLang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-pt')}`;
         } else {
-            el.textContent = newText;
+            // Para os demais elementos, altera apenas o texto
+            el.textContent = currentLang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-pt');
         }
     });
 
-    this.textContent = currentLang === 'en' ? 'US English' : 'BR Português';
+    document.getElementById('translate-btn').textContent = currentLang === 'en' ? 'BR Português' : 'US English';
+  }
 
-    currentLang = currentLang === 'en' ? 'pt' : 'en';
-});
 
+    document.getElementById('translate-btn').addEventListener('click', function () {
+        currentLang = currentLang === 'en' ? 'pt' : 'en';
+        localStorage.setItem('lang', currentLang);
+        applyTranslation();
+    });
+
+    document.addEventListener('DOMContentLoaded', applyTranslation);
 </script>
+
     
 </body>
 </html>
